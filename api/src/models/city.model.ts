@@ -1,9 +1,5 @@
 import { BaseModel } from "./base.model";
-
-export interface City {
-  _id: string,
-  name: string,
-};
+import { City } from "../types";
 
 // if connecting this API to a datastore, this model would be the place to handle queries, inserts, etc.
 export default class CityModel extends BaseModel {

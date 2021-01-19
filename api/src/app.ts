@@ -1,4 +1,5 @@
 import bodyParser from 'body-parser';
+import cors from 'cors';
 import dotenv from 'dotenv';
 import express from 'express';
 import path from 'path';
@@ -14,6 +15,7 @@ dotenv.config({ path: path.resolve(__dirname, '../../', '.env') });
 // setup express app and main configuration vars
 const app = express();
 app.use(bodyParser.json());
+app.use(cors());
 
 app.set('PORT', process.env.API_PORT || 3000);
 

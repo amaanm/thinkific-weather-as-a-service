@@ -1,5 +1,5 @@
 import { Application, NextFunction, Request, Response, Router } from "express";
-import { Weather } from "../models/weather.model";
+import { Weather } from "../types";
 
 export function find(app: Application) {
   return async (req: Request, res: Response, next: NextFunction) => {
