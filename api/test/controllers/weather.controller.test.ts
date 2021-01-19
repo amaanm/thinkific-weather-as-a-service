@@ -12,11 +12,13 @@ describe('weather controller', () => {
         .expect(400, done);
     });
     it('should return a weather object', async () => {
+      process.env.test = "true";
       const res = await request(app).get('/v1/weather?city=Vancouver');
 
       expect(res.status).to.equal(200);
       expect(res.body).to.be.an('object');
       expect(res.body.city).to.equal('Vancouver');
+      delete process.env.test;
     });
   });
 });
