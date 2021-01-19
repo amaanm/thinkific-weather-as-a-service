@@ -22,7 +22,7 @@ describe('Mutations', () => {
   });
   describe('weather', () => {
     it('should set weather', () => {
-      const weather = { city: 'Vancouver', current: { temp: 10, desc_long: 'Light clouds', desc_short: 'Cloudy' } };
+      const weather = { city: 'Vancouver', current: { temp: 10, descLong: 'Light clouds', descShort: 'Cloudy' } };
       mutations.setWeather(state, weather);
 
       expect(state.weather).to.deep.equal(weather);

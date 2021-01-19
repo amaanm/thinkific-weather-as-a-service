@@ -10,9 +10,9 @@ export default class WeatherModel extends BaseModel {
       city: name,
       current: {
         temp: 9.5,
-        desc_short: 'Cloudy',
-        desc_long: 'Cloudy with a chance of meatballs',
-        owm_icon: 'http://openweathermap.org/img/wn/10d@2x.png',
+        descShort: 'Cloudy',
+        descLong: 'Cloudy with a chance of meatballs',
+        owmIcon: 'http://openweathermap.org/img/wn/10d@2x.png',
       },
     };
 
@@ -20,17 +20,22 @@ export default class WeatherModel extends BaseModel {
       return defaultData;
     }
 
-    const owm = (await axios.get(`http://api.openweathermap.org/data/2.5/weather?q=${name}&appid=${process.env.OWM_API_KEY}`)).data;
-    const weather: Weather = {
-      city: `${owm.name}, ${owm.sys.country}`,
-      current: {
-        desc_short: owm.weather[0].main,
-        desc_long: owm.weather[0].description,
-        owm_icon: `http://openweathermap.org/img/wn/${owm.weather[0].icon}@2x.png`,
-        temp: owm.main.temp - 273.15, // kelvin to degrees celcius
-      },
-    };
+    try {
+      const req = await axios.get(`http://api.openweathermap.org/data/2.5/weather?q=${name}&appid=${process.env.OWM_API_KEY}`);
+      const owm = req.data;
+      const weather: Weather = {
+        city: `${owm.name}, ${owm.sys.country}`,
+        current: {
+          descShort: owm.weather[0].main,
+          descLong: owm.weather[0].description,
+          owmIcon: `http://openweathermap.org/img/wn/${owm.weather[0].icon}@2x.png`,
+          temp: owm.main.temp - 273.15, // kelvin to degrees celcius
+        },
+      };
 
-    return weather;
+      return weather;
+    } catch (e) {
+      throw new Error('Cannot find that city');
+    }
   }
 }

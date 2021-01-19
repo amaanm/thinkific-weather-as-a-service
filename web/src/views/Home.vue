@@ -3,14 +3,7 @@
     <div class="row" v-if="activeCity">
       <div class="col-8 offset-2" v-if="weather">
         <weather :weather="weather" />
-        <div class="mt-3 ml-1 text-left">
-          <span>View weather for</span>
-          <a
-            @click="getActiveCityWeather(city.name)"
-            class="badge rounded-pill bg-info text-light ml-1"
-            v-for="city in cities"
-            :key="city._id">{{ city.name }}</a>
-        </div>
+        <city-list :cities="cities" @changeCity="getActiveCityWeather($event)" />
       </div>
     </div>
   </div>
@@ -18,11 +11,13 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
+import CityList from '@/components/CityList.vue'; // @ is an alias to /src
 import Weather from '@/components/Weather.vue'; // @ is an alias to /src
 import { City } from '../../../api/src/types';
 
 @Component({
   components: {
+    CityList,
     Weather,
   },
 })

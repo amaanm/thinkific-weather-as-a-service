@@ -2,23 +2,23 @@
   <div class="card">
     <img
       class="card-img-top city"
-      :src="'https://source.unsplash.com/featured/?' + weather.current.desc_short"
+      :src="'https://source.unsplash.com/featured/?' + weather.city"
       alt="Photo provided by unsplash" />
     <div class="card-body">
       <div class="row">
         <div class="col d-flex flex-row align-items-center">
           <img
             class="icon"
-            v-if="weather.current.owm_icon"
-            :src="weather.current.owm_icon"
+            v-if="weather.current.owmIcon"
+            :src="weather.current.owmIcon"
             alt="Weather icon">
           <div class="text-left">
             <h2 class="text-left city-name">{{ weather.city }}</h2>
-            <h3 class="temp">9.5ºC</h3>
+            <h3 class="temp">{{ weather.current.temp.toFixed(1) }}ºC</h3>
           </div>
           <div class="ml-auto text-right desc">
-            <h4>{{ weather.current.desc_short }}</h4>
-            <h5 class="muted"><i>{{ weather.current.desc_long }}</i></h5>
+            <h4>{{ weather.current.descShort }}</h4>
+            <h5 class="muted"><i>{{ weather.current.descLong }}</i></h5>
           </div>
         </div>
       </div>
@@ -39,7 +39,7 @@ export default class WeatherComponent extends Vue {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 img.city {
-  height: 10rem;
+  height: 20rem;
   object-fit: cover;
 }
 </style>

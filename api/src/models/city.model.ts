@@ -7,8 +7,8 @@ export default class CityModel extends BaseModel {
   async find(name?: string) {
     const cities: City[] = [
       { _id: '1', name: 'Vancouver' },
-      { _id: '2', name: 'Surrey' },
-      { _id: '3', name: 'Richmond' },
+      { _id: '2', name: 'Paris' },
+      { _id: '3', name: 'Sydney' },
     ];
 
     if (name) {

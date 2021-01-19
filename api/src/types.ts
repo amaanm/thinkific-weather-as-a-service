@@ -7,9 +7,9 @@ export interface Weather {
   city: string;
   current: {
     temp: number;
-    desc_short: string;
-    desc_long: string;
-    owm_icon?: string;
+    descShort: string;
+    descLong: string;
+    owmIcon?: string;
   };
 };
 

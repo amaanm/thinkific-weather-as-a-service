@@ -30,12 +30,20 @@ export const mutations = {
 };
 export const actions = {
   async getAllCities(context: ActionContext<State, State>) {
-    const cities: City[] = (await API.cities.list()).data;
-    context.commit('setCities', cities);
+    try {
+      const cities: City[] = (await API.cities.list()).data;
+      context.commit('setCities', cities);
+    } catch (e) {
+      alert(e.response.data.error);
+    }
   },
   async getCityWeather(context: ActionContext<State, State>, city: string) {
-    const weather: Weather = (await API.weather.get(city)).data;
-    context.commit('setWeather', weather);
+    try {
+      const weather: Weather = (await API.weather.get(city)).data;
+      context.commit('setWeather', weather);
+    } catch (e) {
+      alert(e.response.data.error);
+    }
   },
 };
 
