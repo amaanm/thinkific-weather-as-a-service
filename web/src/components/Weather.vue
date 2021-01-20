@@ -22,6 +22,17 @@
           </div>
         </div>
       </div>
+      <p
+        class="text-left mb-0 mt-3"
+        v-if="user && user.favouriteCity != weather.city">
+        <button class="btn btn-link" @click="favourite()">
+          <i class="far fa-star"></i>
+        </button> click the star to set this city as your favourite.
+        <br>
+        <small class="text-muted">
+          This city will load first when you are signed in to your account
+        </small>
+      </p>
     </div>
   </div>
 </template>
@@ -33,6 +44,14 @@ import { Weather } from '../../../api/src/types';
 @Component
 export default class WeatherComponent extends Vue {
   @Prop() private weather!: Weather;
+
+  favourite() {
+    this.$store.dispatch('setFavourite', this.weather.city);
+  }
+
+  get user() {
+    return this.$store.state.user;
+  }
 }
 </script>
 

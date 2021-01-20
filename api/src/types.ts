@@ -16,5 +16,5 @@ export interface Weather {
 export interface User {
   username: string;
   password: string;
-  favouriteCities: string[];
+  favouriteCity?: string;
 };

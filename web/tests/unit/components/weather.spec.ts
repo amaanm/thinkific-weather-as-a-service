@@ -1,13 +1,22 @@
-/* eslint-disable @typescript-eslint/camelcase */
+/* eslint-disable @typescript-eslint/camelcase, @typescript-eslint/no-explicit-any */
 import { expect } from 'chai';
 import { shallowMount } from '@vue/test-utils';
+import Vuex from 'vuex';
 import Home from '@/components/Weather.vue';
 
 describe('Weather.vue', () => {
   let wrapper: any;
+  let store;
 
   before(() => {
+    store = new Vuex.Store({
+      state: {
+        user: null,
+      },
+    });
+
     wrapper = shallowMount(Home, {
+      store,
       propsData: {
         weather: {
           city: 'TestCity',

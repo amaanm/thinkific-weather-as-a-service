@@ -14,4 +14,26 @@ export default {
       return axios.get(API_URL + 'weather?city=' + name);
     },
   },
+  users: {
+    create(username: string, password: string) {
+      return axios.post(API_URL + 'users', {
+        username,
+        password,
+      });
+    },
+    auth(username: string, password: string) {
+      return axios.post(API_URL + 'users/auth', {
+        username,
+        password,
+        strategy: 'local',
+      });
+    },
+    update(username: string, payload: any, token: string) {
+      return axios.patch(API_URL + 'users/' + username, payload, {
+        headers: {
+          authorization: `Bearer ${token}`,
+        },
+      });
+    },
+  },
 };

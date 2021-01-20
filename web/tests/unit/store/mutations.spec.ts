@@ -10,6 +10,7 @@ describe('Mutations', () => {
       cities: [],
       weather: null,
       user: null,
+      token: '',
     };
   });
 

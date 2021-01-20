@@ -10,5 +10,5 @@ process.on('unhandledRejection', (reason, p) =>
 
 // log application startup
 server.on('listening', () => {
-  console.info('Feathers application (v%s) started on port %d', process.env.npm_package_version, port);
+  console.info('API (v%s) started on port %d', process.env.npm_package_version, port);
 });

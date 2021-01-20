@@ -1,9 +1,20 @@
 <template>
-  <div class="home container mt-5">
-    <div class="row" v-if="activeCity">
-      <div class="col-8 offset-2" v-if="weather">
-        <weather :weather="weather" />
-        <city-list :cities="cities" @changeCity="getActiveCityWeather($event)" />
+  <div>
+    <div>
+      <span v-if="user">Hello, {{ user.username }}</span>
+      <span v-if="!user">
+        <router-link :to="'/login'">Login</router-link>
+        <span> / </span>
+        <router-link :to="'/register'">register</router-link>
+      </span>
+    </div>
+
+    <div class="home container mt-5">
+      <div class="row" v-if="activeCity">
+        <div class="col-8 offset-2" v-if="weather">
+          <weather :weather="weather" />
+          <city-list :cities="cities" @changeCity="getActiveCityWeather($event)" />
+        </div>
       </div>
     </div>
   </div>
@@ -28,7 +39,10 @@ export default class Home extends Vue {
     await this.getAllCities();
     // eslint-disable-next-line
     this.activeCity = this.cities[0];
-    if (this.activeCity && this.activeCity.name) {
+
+    if (this.user && this.user.favouriteCity) {
+      await this.getActiveCityWeather(this.user.favouriteCity);
+    } else if (this.activeCity && this.activeCity.name) {
       await this.getActiveCityWeather(this.activeCity.name);
     }
   }
@@ -47,6 +61,10 @@ export default class Home extends Vue {
 
   get weather() {
     return this.$store.state.weather;
+  }
+
+  get user() {
+    return this.$store.state.user;
   }
 }
 </script>
