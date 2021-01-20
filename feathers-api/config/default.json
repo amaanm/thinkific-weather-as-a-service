@@ -1,0 +1,30 @@
+{
+  "host": "0.0.0.0",
+  "port": 3000,
+  "public": "../public/",
+  "paginate": {
+    "default": 10,
+    "max": 50
+  },
+  "authentication": {
+    "entity": "user",
+    "service": "users",
+    "secret": "GvQGoUREtdzwtrZgx4N6YuQDPKpMdK",
+    "authStrategies": [
+      "jwt",
+      "local"
+    ],
+    "jwtOptions": {
+      "header": {
+        "typ": "access"
+      },
+      "issuer": "feathers",
+      "algorithm": "HS256"
+    },
+    "local": {
+      "usernameField": "username",
+      "passwordField": "password"
+    }
+  },
+  "OWM_KEY": "3b7c0f721e92ac347721aec01306643e"
+}
