@@ -17,13 +17,14 @@ const app = express();
 app.use(bodyParser.json());
 app.use(cors());
 
-app.set('PORT', process.env.API_PORT || 3000);
+app.set('PORT', process.env.PORT || 3000);
 
 // setup models
 models(app);
 
 // setup controllers
 controllers(app);
+app.use('/', express.static(path.resolve(__dirname, '../public')));
 
 // express error handler
 app.use(errorHandler());

@@ -35,6 +35,7 @@ export default class WeatherModel extends BaseModel {
 
       return weather;
     } catch (e) {
+      console.error(e);
       throw new Error('Cannot find that city');
     }
   }
