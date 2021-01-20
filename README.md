@@ -86,7 +86,8 @@ I would have liked to include a database to persist user data to, as well as cac
 
 
 ### Other information about your submission that you feel it's important that we know if applicable.
-I chose to use express for the API and Vue for the frontend as I have worked with express extensively, and have the most recent experience with Vue. It was also easy to use TypeScript for both, and I did not have to switch between languages when working on the API/frontend.
+I chose to use express for the API and Vue for the frontend as I have worked with express extensively, and have the most recent experience with Vue. It was also easy to use TypeScript for both, and I did not have to switch between languages when working on the API/frontend.  
 
+I also committed the OWM API key to git, in an effort to make this demonstration work for you "out of the box" but that is not something I would do. It can be set through an environment variable at run time, so it could be set during orchestration and/or should utilise some type of secrets management.
 ### Your feedback on this technical challenge
 I enjoyed this technical challenge and I think the amount of direction/the open-ended creation of an API is interesting and reflective of how you might create a brand new API/project. 
