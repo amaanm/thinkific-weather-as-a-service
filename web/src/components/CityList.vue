@@ -22,7 +22,7 @@
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
-import { City, Weather } from '../../../api/src/types';
+import { City, Weather } from '../types';
 
 @Component
 export default class CityListComponent extends Vue {

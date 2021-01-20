@@ -1,11 +1,18 @@
+import express from '@feathersjs/express';
+import path from 'path';
+import favicon from 'serve-favicon';
+
 import logger from './logger';
 import app from './app';
-import express from '@feathersjs/express';
 
 const hostname = app.get('host');
 const port = app.get('port');
 const root = express();
 root.use('/v1', app);
+
+// Host the public folder
+root.use(favicon(path.join(app.get('public'), 'favicon.ico')));
+root.use('/', express.static(app.get('public')));
 
 const server = root.listen(port, hostname);
 

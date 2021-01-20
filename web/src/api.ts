@@ -1,7 +1,8 @@
 /* eslint prefer-template: 0 */
 import axios from 'axios';
 
-const API_URL = process.env.API_URL || 'http://localhost:3000/v1/';
+console.log(process.env);
+const API_URL = process.env.VUE_APP_API_URL || 'http://localhost:3000/v1/';
 
 export default {
   cities: {

@@ -39,7 +39,7 @@
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
-import { Weather } from '../../../api/src/types';
+import { Weather } from '../types';
 
 @Component
 export default class WeatherComponent extends Vue {

@@ -1,5 +1,5 @@
 {
-  "port": "API_PORT",
+  "port": "PORT",
   "authentication": {
     "secret": "JWT_SECRET"
   }

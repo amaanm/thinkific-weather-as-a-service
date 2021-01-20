@@ -41,7 +41,7 @@
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
-import { City } from '../../../api/src/types';
+import { City } from '../types';
 import API from '../api';
 
 @Component({

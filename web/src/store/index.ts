@@ -3,7 +3,7 @@ import Vue from 'vue';
 import Vuex, { ActionContext } from 'vuex';
 
 import API from '../api';
-import { City, User, Weather } from '../../../api/src/types';
+import { City, User, Weather } from '../types';
 
 Vue.use(Vuex);
 

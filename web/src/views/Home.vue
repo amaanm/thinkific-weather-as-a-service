@@ -24,7 +24,7 @@
 import { Component, Vue } from 'vue-property-decorator';
 import CityList from '@/components/CityList.vue'; // @ is an alias to /src
 import Weather from '@/components/Weather.vue'; // @ is an alias to /src
-import { City } from '../../../api/src/types';
+import { City } from '../types';
 
 @Component({
   components: {
